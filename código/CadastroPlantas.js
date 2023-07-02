@@ -63,8 +63,6 @@ function incluirContato() {
     //salvar os dados no localStorage novamente
     salvaDados(objDados);
 
-
-
     //imprimir novos dados
     imprimeDados();
 

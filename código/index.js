@@ -1,90 +1,75 @@
 // Recupera os dados salvos no Local Storage
-var dadosArquivos = localStorage.getItem("plantas");
-
-/*
-
-// Verifica se existem dados salvos
-if (dadosArquivos) {
-  // Converte os dados salvos em um array de objetos
-  var cards = JSON.parse(dadosArquivos);
-} else {
-  // Exemplo de array de cards
-  var cards = [
-    { titulo: "Card 1", descricao: "Descrição do Card 1" },
-    { titulo: "Card 2", descricao: "Descrição do Card 2" },
-    { titulo: "Card 3", descricao: "Descrição do Card 3" }
-  ];
+//var plantas = localStorage.getItem("objDados");
+const getData = async () => {
+  var cards = JSON.parse(window.localStorage.getItem('db'));
+  return cards;
 }
 
-// Obtém a referência da div de exibição
-var divExibicao = document.querySelector('.linha2');
 
-// Verifica se existem cards para exibir
-if (cards.length > 0) {
-  // Percorre o array de cards e cria elementos HTML para cada um deles
-  cards.forEach(function(card) {
-    var cardElement = document.createElement('div');
-    cardElement.classList.add('card', 'col-3', 'col-sm-5', 'col-md-3');
-    cardElement.innerHTML = `
-    <h1 class="title">${card.titulo}</h1>
-    <p class="category">${card.descricao}</p>
-  `;
-    divExibicao.appendChild(cardElement);
+const display = async () => {
+
+  const dados = await getData();
+
+  var data1 = "";
+  var numero = 1;
+  let dataDisplay = dados.plantas.map((object) => {
+    
+    data1 += `
+    <div class = product>
+              <a href="Detalhes.html? titulo = ${object.nome}"></a>
+              <h1 class = "planta${numero}">${object.nome}></h1>
+              <p class = "nomecientifico"> ${object.nomecien} </p>
+              <p class = "descricao"> ${object.descricao} </p>
+    </div>
+    `
+    numero++;
   });
 
-} else {
-  console.log("Nenhum card para exibir.");
+  document.getElementById("cards").innerHTML=data1;
+
 }
 
-// Obtém o botão pelo seu ID
-var botao = document.getElementById('meuBotao');
+display ();
 
-// Manipulador de evento para o clique no botão
-botao.addEventListener('click', function() {
-  // Array de objetos
-  var cards = [
-    { titulo: "Card 1", descricao: "Descrição do Card 1" },
-    { titulo: "Card 2", descricao: "Descrição do Card 2" },
-    { titulo: "Card 3", descricao: "Descrição do Card 3" },
-    { titulo: "Card 4", descricao: "Descrição do Card 4" },
-    { titulo: "Card 5", descricao: "Descrição do Card 5" },
-    { titulo: "Card 6", descricao: "Descrição do Card 6" }
-  ];
 
-  // Converte o array de objetos em uma string JSON
-  var dadosArquivos = JSON.stringify(cards);
+/* PESQUISAR */
+const search = () => {
+  var contagem = 0;
+  /* BUSCAR TEXTO INSERIDO E ATRIBUTOS CARDS */
+  //document.getElementById("texto-inicial").style.display = "none";
+  const searchbox = document.getElementById("search-item").value.toUpperCase();
+  const storeitems = document.getElementById("cards")
+  const product = document.querySelectorAll(".product")
+  const pname = document.getElementsByTagName("h1")
+  
+  
+  for (var i = 0; i < pname.length; i++) {
+      let match = product[i].getElementsByTagName('h1')[0];
+      
+      /* VER SE O VALOR PROCURADO É IGUAL AO "BANCO DE DADOS" */
+      if (match) {
+          let textvalue = match.textContent || match.innerHTML
 
-  // Armazena os dados no Local Storage
-  localStorage.setItem("arquivos", dadosArquivos);
+          /* COLOCAR ELEMENTOS CORRETOS VISÍVEIS */
+          if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+              product[i].style.display = "block";
+              contagem++;
+              //document.getElementById("resultadoNegativo").style.display = "";
+              //document.getElementById("texto-resultado").style.display = "block";
+          }
+          else {
+              product[i].style.display = "none";
+          }
 
-  console.log("Dados salvos no Local Storage com sucesso!");
-
-  // Limpa a div de exibição antes de exibir os novos dados
-  divExibicao.innerHTML = '';
-
-  // Verifica se existem dados salvos no Local Storage
-  if (dadosArquivos) {
-    // Converte os dados salvos em um array de objetos
-    var cards = JSON.parse(dadosArquivos);
-
-    // Verifica se existem cards para exibir
-    if (cards.length > 0) {
-      // Percorre o array de cards e cria elementos HTML para cada um deles
-      cards.forEach(function(card) {
-        var cardElement = document.createElement('div');
-        cardElement.classList.add('card', 'col-3', 'col-sm-5', 'col-md-3');
-        cardElement.innerHTML = `
-    <h1 class="title">${card.titulo}</h1>
-    <p class="category">${card.descricao}</p>
-  `;
-        divExibicao.appendChild(cardElement);
-      });
-    } else {
-      console.log("Nenhum card para exibir.");
-    }
-  } else {
-    console.log("Nenhum dado encontrado no Local Storage.");
+          if (contagem == 0) {
+              //document.getElementById("resultadoNegativo").style.display = "block";
+              //document.getElementById("texto-resultado").style.display = "none";
+          }
+      }
   }
-});
 
-*/
+}
+
+
+
+
