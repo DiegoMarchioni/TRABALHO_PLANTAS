@@ -16,10 +16,12 @@ const display = async () => {
     
     data1 += `
     <div class = product>
-              <a href="Detalhes.html? titulo = ${object.nome}"></a>
-              <h1 class = "planta${numero}">${object.nome}></h1>
-              <p class = "nomecientifico"> ${object.nomecien} </p>
+              <div class = "card">
+              <h1 class = "planta${numero}">${object.nome}</h1>
+              <p class = "nomecientifico"><i> ${object.nomecien} </i></p>
+              <p> Exposição a Luz diária: ${object.luz} | Intervalo de rega: ${object.rega} | Tipo de solo ideal: ${object.solo}</p>
               <p class = "descricao"> ${object.descricao} </p>
+              </div>
     </div>
     `
     numero++;
