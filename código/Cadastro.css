@@ -4,6 +4,8 @@
         margin: 0;
     }
 
+
+
     body * {
         box-sizing: border-box;
     }
@@ -31,7 +33,7 @@
     }
 
     .left-cadastro-image{
-        width: 35vw;
+        width: 500px;
         border-radius: 60%;
     }
 
