@@ -4,7 +4,7 @@ function logar() {
   let validaLogin = false;
 
   // Obter os dados do localStorage
-  var armazenadoItens = JSON.parse(localStorage.getItem("db"));
+  var armazenadoItens = JSON.parse(localStorage.getItem("login"));
 
   // Verificar se os dados do usuário estão corretos
   for (let i = 0; i < armazenadoItens.length; i++) {

@@ -10,7 +10,7 @@ let campoSenha = document.querySelector('#campoSenha');
 let labelSenha = document.querySelector('#labelSenha');
 let validSenha = false;
 
-let cadastro = localStorage.getItem("db");
+let cadastro = localStorage.getItem("login");
 
 campoNome.addEventListener('keyup', () => {
   if (campoNome.value.length <= 2) {
@@ -84,7 +84,7 @@ campoSenha.addEventListener('keyup', () => {
 
 
 function leDados() {
-  let strDados = localStorage.getItem('db');
+  let strDados = localStorage.getItem('login');
   let objDados = {};
 
   if (strDados) {
@@ -104,7 +104,7 @@ function leDados() {
 }
 
 function salvaDados(dados) {
-  localStorage.setItem('db', JSON.stringify(dados));
+  localStorage.setItem('login', JSON.stringify(dados));
 }
 
 function incluirContato() {
