@@ -6,4 +6,3 @@ A documentação do projeto é composta pelos seguintes itens:
  - [Apresentação do Projeto](apresentacao/apresentacao%20-%20TEMPLATE.pptx)
  - [Vídeo de Demonstração](https://youtube.com)
 
-teste de push
