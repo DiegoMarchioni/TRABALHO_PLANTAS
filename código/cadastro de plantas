@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro de Plantas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    select {
+      height: 38px;
+    }
+
+    button {
+      background-color: purple; /* Altere a cor aqui */
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #8a2be2; /* Altere a cor aqui */
+    }
+
+    /* Estilos para telas menores */
+    @media screen and (max-width: 480px) {
+      .container {
+        max-width: 100%;
+        margin: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro de Plantas</h1>
+    <form>
+      <label for="nome-popular">Nome Popular:</label>
+      <input type="text" id="nome-popular" required>
+
+      <label for="nome-cientifico">Nome Científico:</label>
+      <input type="text" id="nome-cientifico" required>
+
+      <label for="codigo">Código:</label>
+      <input type="text" id="codigo" required>
+
+      <label for="substrato">Substrato:</label>
+      <input type="text" id="substrato" required>
+
+      <label for="adubo">Adubo:</label>
+      <input type="text" id="adubo" required>
+
+      <label for="vaso">Vaso:</label>
+      <input type="text" id="vaso" required>
+
+      <label for="quantidade-sol">Quantidade de Sol:</label>
+      <select id="quantidade-sol" required>
+        <option value="">Selecione</option>
+        <option value="pouco">Pouco Sol</option>
+        <option value="moderado">Sol Moderado</option>
+        <option value="muito">Muito Sol</option>
+      </select>
+      <label for="quantidade-agua">Quantidade de Água:</label>
+      <select id="quantidade-agua" name="quantidade-agua">
+        <option value="">Selecione</option>
+        <option value="1xdia">1 Vez por Dia</option>
+        <option value="2xdia">2 Vezes ao Dia</option>
+        <option value="1xsem">1 Vez por Semana</option>
+        <option value="2xsem">2 Vezes por Semana</option>
+        <option value="3xsem">3 Vezes por Semana</option>
+        <option value="4xsem">4 Vezes por Semana</option>
+        <option value="1xmes">1 Vez por Mês</option>
+      </select>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>
